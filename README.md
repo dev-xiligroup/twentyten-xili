@@ -8,7 +8,7 @@ Master Branch is reserved for latest version of xili-language 2.10.0
 
 This example is visible (and documented) here
 
-http://2011.wpmu.xilione.com
+http://multilingual.wpmu.xilione.com
 
 After installation or updating, it is fully recommanded to refresh permalinks.
 
