@@ -3,17 +3,17 @@
 /**
  * Theme Name: Twentyten-xili Multilingual Child
  * Theme URI: http://dev.xiligroup.com/
- * Description: Twentyten based but including features for multilingual context with xili-language plugin >= 2.8.8+
+ * Description: Twentyten based but including features for multilingual context with xili-language plugin >= 2.10+
  * Author: dev.xiligroup.com ms
  * Author URI: http://dev.xiligroup.com/
- * Version: 3.0
+ * Version: 3.1
  * Tags: child theme, tabs, multilingual
  * Template: twentyten
  */
 
 @import url('../twentyten/style.css'); /* the most important line of the style.css of a child from his parent twentyten */
 
-/** must be used with xili-language 2.8.8 **/
+/** must be used with xili-language 2.10+ **/
 
 
 
@@ -22,3 +22,4 @@ ul.xililanguagelist {list-style: none !important ; margin-left:0 !important ;}
 
 
 /** © dev.xiligroup.com - 2013-05-05 **/
+/** © dev.xiligroup.com - 2014-02-10 - adapted for new class permalinks **/
