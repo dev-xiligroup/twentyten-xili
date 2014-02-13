@@ -14,6 +14,8 @@ After installation or updating, it is fully recommanded to refresh permalinks.
 
 -- a child theme needs his parent theme named twenty ten v. 1.6 --
 
-2014-02-12
+Before updating don't forgot to keep a backup of the current languages files (.mo) in child sub-folder.
+
+2014-02-13
 
 M.
