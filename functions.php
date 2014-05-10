@@ -13,13 +13,15 @@ function twentyten_xilidev_setup () {
 
 	$theme_domain = 'twentyten';
 
+	$minimum_xl_version = '2.11.99';
+
 	load_theme_textdomain( $theme_domain, STYLESHEETPATH . '/langs' ); // now use .mo of child
 
 	$xl_required_version = false;
 
 	if ( class_exists('xili_language') ) { // if temporary disabled
 
-		$xl_required_version = version_compare ( XILILANGUAGE_VER, '2.11.99', '>' );
+		$xl_required_version = version_compare ( XILILANGUAGE_VER, $minimum_xl_version, '>' );
 
 		global $xili_language;
 
