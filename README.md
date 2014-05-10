@@ -14,14 +14,10 @@ After installation or updating, it is fully recommanded to refresh permalinks.
 
 -- a child theme needs his parent theme named twentyten v. 1.6 and WP 3.9.1
 
-<<<<<<< HEAD
+
 2014-05-10
 
 IMPORTANT: Before updating don't forgot to keep a backup of the current languages files (.mo, .po) in child sub-folder.
-=======
-Before updating don't forgot to keep a backup of the current languages files (.mo) in child sub-folder.
 
-2014-02-13
->>>>>>> FETCH_HEAD
 
 M.
