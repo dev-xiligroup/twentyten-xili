@@ -245,6 +245,20 @@ function xiliml_new_list() {
 
 }
 
+/**
+ * condition to filter adjacent links
+ * @since 1.1.4
+ *
+ */
+
+function is_xili_adjacent_filterable() {
+
+	if ( is_search () ) { // for multilingual search
+		return false;
+	}
+	return true;
+}
+
 /*special flags in list*/
 function xiliml_infunc_the_other_posts($post_ID, $before = "Read This post in", $separator = ", ", $type = "display") {
 			$outputarr = array();
@@ -264,6 +278,7 @@ function xiliml_infunc_the_other_posts($post_ID, $before = "Read This post in", 
 				}
 			}
 			if ($type == "display") {
+				$output = "";
 				if (!empty($outputarr))
 					$output = (($before !="") ? __($before,the_theme_domain())." " : "" ).implode ($separator, $outputarr);
 				if ('' != $output) { echo $output;}
