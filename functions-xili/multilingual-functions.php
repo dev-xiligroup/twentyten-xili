@@ -5,7 +5,7 @@
 
 
 global $wp_version;
-if ( version_compare( $wp_version, '3.8.9', '>' ) ){ // to test with alpha 3.8.9
+if ( version_compare( $wp_version, '3.10.9', '>' ) ){ // to test with alpha 3.8.9
 
 	function xili_get_adjacent_post_query_args( $query_args, $args ){
 		$current_post = get_post( $args['post'] );
