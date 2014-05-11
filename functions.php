@@ -6,7 +6,7 @@ define('TWENTYTEN_XILI_VER', '1.6.0'); // as style.css
  *© dev.xiligroup.com - 2013-05-05
  *© dev.xiligroup.com - 2014-02-10 - adapted for new class permalinks
  * 2014-02-12 - with new class permalinks in XL 2.10+
- * 2015-05-10 - with new class theme in XL 2.12+
+ * 2015-05-11 - with new class theme in XL 2.12+
  *
  */
 function twentyten_xilidev_setup () {
@@ -105,7 +105,16 @@ function twentyten_xilidev_setup () {
 			if ( file_exists( $xili_functionsfolder . '/multilingual-permalinks.php') && $xili_language->is_permalink && isset( $xili_theme_options['perma_ok'] ) && $xili_theme_options['perma_ok']) {
 				require_once ( $xili_functionsfolder . '/multilingual-permalinks.php' ); // require subscribing premium services
 			}
-			$msg = $xili_language_theme_options->child_installation_msg( $xl_required_version, $minimum_xl_version, $class_ok );
+			if ( $xl_required_version ) { // msg choice is inside class
+				$msg = $xili_language_theme_options->child_installation_msg( $xl_required_version, $minimum_xl_version, $class_ok );
+			} else {
+				$msg = '
+				<div class="error">'.
+					/* translators: added in child functions by xili */
+					'<p>' . sprintf ( __('The %1$s child theme requires xili_language version more recent than %2$s installed', 'twentyten' ), get_option( 'current_theme', $minimum_xl_version ) ).'</p>
+				</div>';
+
+			}
 		} else {
 
 			$msg = '
