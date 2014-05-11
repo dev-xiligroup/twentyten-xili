@@ -111,29 +111,33 @@ function twentyten_xilidev_setup () {
 	if ( ! class_exists( 'xili_language' ) ) {
 
 		$msg = '
-		<div class="error">
-			<p>' . sprintf ( __('The %s child theme requires xili-language plugin installed and activated', 'twentyten' ), get_option( 'current_theme' ) ).'</p>
+		<div class="error">'.
+			/* translators: added in child functions by xili */
+			'<p>' . sprintf ( __('The %s child theme requires xili-language plugin installed and activated', 'twentyten' ), get_option( 'current_theme' ) ).'</p>
 		</div>';
 
 	} elseif ( $class_ok === false ) {
 
 		$msg = '
-		<div class="error">
-			<p>' . sprintf ( __('The %s child theme requires <em>xili_language_theme_options</em> class to set multilingual features.', 'twentyten' ), get_option( 'current_theme' ) ).'</p>
+		<div class="error">'.
+			/* translators: added in child functions by xili */
+			'<p>' . sprintf ( __('The %s child theme requires <em>xili_language_theme_options</em> class to set multilingual features.', 'twentyten' ), get_option( 'current_theme' ) ).'</p>
 		</div>';
 
 	} elseif ( $xl_required_version ) {
 
 		$msg = '
-		<div class="updated">
-			<p>' . sprintf ( __('The %s child theme was successfully activated with xili-language.', 'twentyten' ), get_option( 'current_theme' ) ).'</p>
+		<div class="updated">'.
+			/* translators: added in child functions by xili */
+			'<p>' . sprintf ( __('The %s child theme was successfully activated with xili-language.', 'twentyten' ), get_option( 'current_theme' ) ).'</p>
 		</div>';
 
 	} else {
 
 		$msg = '
-		<div class="error">
-			<p>' . sprintf ( __('The %1$s child theme requires xili-language version %2$s+', 'twentyten' ), get_option( 'current_theme' ), $minimum_xl_version ).'</p>
+		<div class="error">'.
+			/* translators: added in child functions by xili */
+			'<p>' . sprintf ( __('The %1$s child theme requires xili-language version %2$s+', 'twentyten' ), get_option( 'current_theme' ), $minimum_xl_version ).'</p>
 		</div>';
 	}
 	// after activation and in themes list
@@ -250,7 +254,6 @@ function xiliml_new_list() {
  * @since 1.1.4
  *
  */
-
 function is_xili_adjacent_filterable() {
 
 	if ( is_search () ) { // for multilingual search
@@ -294,6 +297,13 @@ function xiliml_infunc_the_other_posts($post_ID, $before = "Read This post in", 
 
 }
 add_filter('xiliml_the_other_posts','xiliml_infunc_the_other_posts',10,4); // 1.1 090917
+
+function twentyten_xili_credits () {
+	/* translators: added in child functions by xili */
+	printf( __("Multilingual child theme of twentyten by %s", 'twentyten' ),"<a href=\"http://dev.xiligroup.com\">dev.xiligroup</a> - " );
+}
+
+add_action ('twentyten_credits','twentyten_xili_credits');
 
 
 ?>
