@@ -111,7 +111,7 @@ function twentyten_xilidev_setup () {
 				$msg = '
 				<div class="error">'.
 					/* translators: added in child functions by xili */
-					'<p>' . sprintf ( __('The %1$s child theme requires xili_language version more recent than %2$s installed', 'twentyten' ), get_option( 'current_theme', $minimum_xl_version ) ).'</p>
+					'<p>' . sprintf ( __('The %1$s child theme requires xili_language version more recent than %2$s installed', 'twentyten' ), get_option( 'current_theme' ), $minimum_xl_version ).'</p>
 				</div>';
 
 			}
