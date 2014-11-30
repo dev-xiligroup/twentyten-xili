@@ -6,8 +6,8 @@ define('TWENTYTEN_XILI_VER', '1.6.1'); // as style.css
  *© dev.xiligroup.com - 2013-05-05
  *© dev.xiligroup.com - 2014-02-10 - adapted for new class permalinks
  * 2014-02-12 - with new class permalinks in XL 2.10+
- * 2014-05-11 - with new class theme in XL 2.12+
- * 2014-06-11 - fixes search form addon
+ * 2015-05-11 - with new class theme in XL 2.12+
+ * 2015-11-30 - fixes adjacent links
  *
  */
 function twentyten_xilidev_setup () {
@@ -140,7 +140,6 @@ function twentyten_xilidev_setup () {
 		add_action( 'admin_notices', $c = create_function( '', 'echo "' . addcslashes( $msg, '"' ) . '";' ) );
 
 	// end errors...
-
 }
 
 /* actions */
@@ -170,22 +169,6 @@ function special_head() {
 }
 
 /**
- * add search other languages in form - see functions.php when fired
- *
- */
-function my_langs_in_search_form ( $the_form ) {
-
-	$form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-	<div><label class="screen-reader-text" for="s">' . esc_attr__( "Search", the_theme_domain() ) . '</label>
-	<input type="text" value="' . get_search_query() . '" name="s" id="s" />
-	<input type="submit" id="searchsubmit" value="'. esc_attr__( 'Search', the_theme_domain() ) .'" />
-	</div>';
-	$form .= xiliml_langinsearchform ($before='', $after='', false);
-	$form .= '</form>';
-	return $form ;
-}
-
-/**
  * dynamic style for flag depending current list
  *
  * @since 1.0.2 - add #access
@@ -193,7 +176,7 @@ function my_langs_in_search_form ( $the_form ) {
  */
 function twentyten_flags_style () {
 
-	if ( class_exists('xili_language') ) {
+	if ( !class_exists('xili_language') ) {
 		global $xili_language ;
 		$language_xili_settings = get_option('xili_language_settings');
 		if ( !is_array( $language_xili_settings['langs_ids_array'] ) ) {

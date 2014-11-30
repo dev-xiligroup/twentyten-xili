@@ -4,41 +4,7 @@
 */
 
 
-global $wp_version;
-if ( version_compare( $wp_version, '3.10.9', '>' ) ){ // to test with alpha 3.8.9
-
-	function xili_get_adjacent_post_query_args( $query_args, $args ){
-		$current_post = get_post( $args['post'] );
-		$curlang = xiliml_get_lang_object_of_post( $current_post->ID );
-
-		if ( $curlang ) { // only when language is defined !
-			if ( isset ( $query_args['tax_query'] )) {
-				$query_args['tax_query'][] =
-				array(
-					'field'		=> 'slug',
-					'taxonomy'	=> TAXONAME, // language
-					'terms'		=> $curlang->slug,
-				);
-				$query_args['tax_query']['relation'] = 'AND';
-
-			} else {
-				$query_args['tax_query'] = array(
-				array(
-					'field'		=> 'slug',
-					'taxonomy'	=> TAXONAME, // language
-					'terms'		=> $curlang->slug,
-				),
-			);
-			}
-		}
-		return $query_args;
-	}
-
-	add_filter( 'get_adjacent_post_query_args', 'xili_get_adjacent_post_query_args', 10, 2 );
-
-
-} else {
-
+// filter get adajacent query obsolete see ticket #26937 - 20141130
 
 	/**
 	 * ***** BreadCrump ******
@@ -77,7 +43,7 @@ if ( version_compare( $wp_version, '3.10.9', '>' ) ){ // to test with alpha 3.8.
 		add_filter( 'get_previous_post_where', 'xiliml_adjacent_where_filter', 10, 3);
 
 	}
-}
+
 
 /**
  * this part for language like khmer without set_locale on server
